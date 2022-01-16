@@ -6,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
     <title>Document</title>
 </head>
@@ -40,6 +45,9 @@
                         <div class="card-text">
                             {{ product.price }} PLN
                         </div>
+
+                        <a href="/{{ product.id }}" class="btn btn-warning">Zobacz</a>
+                        <button class="btn atc btn-warning"> Dodaj do koszyka</button>
                     </div>
                 </div>
             </div>
@@ -70,4 +78,17 @@
         </div>
     </div>
 </body>
+<script type="text/javascript">
+    console.log("This is working");
+
+    if(localStorage.getItem('cart')==null){
+        let cart = {};
+    }else{
+        cart = JSON.parse(localStorage.getItem('cart'));
+    }
+
+    $(document).on('click', '.atc', function(){
+        console.log("the add to cart")
+    });
+</script>
 </html>
