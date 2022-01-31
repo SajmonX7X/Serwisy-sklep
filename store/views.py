@@ -94,7 +94,7 @@ def processOrder(request):
 	order.save()
 
 	if order.shipping ==True:
-		ShippingAddress.objects.create(
+		ShipingAddress.objects.create(
 				customer=customer,
 				order=order,
 				address =data['shipping']['address'],
